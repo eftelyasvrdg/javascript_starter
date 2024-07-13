@@ -1,0 +1,41 @@
+//Variable type conversion
+
+let age = window.prompt("How old are you?");
+//Currently age is a string to convert it to integer
+age = Number(age);
+age++;
+console.log(age, typeof age);
+
+//If you convert a random string into a integer it would simply convert to NaN(not a number)
+let x = "try";
+x = Number(x);
+console.log(x, typeof x);
+
+//If you convert a random string or integer into a boolean it will return true
+let y = "try";
+y = Boolean(y);
+console.log(y, typeof y);
+
+//If you want to convert an empty string into a boolean it will return false
+//If we convert a empty string to a integer it will return to 0.
+let z = "";
+z = Boolean(z);
+console.log(z, typeof z);
+
+//if we dont define our variables and convert : integer would be NaN, string would be undefined 
+//and boolean would be false
+
+
+//constant variables
+//to make a contant variable instead of let use const
+const PI = 3.14159;
+let radius;
+let circumference;
+
+document.getElementById("submit").onclick = function(){
+    //don't forget .value
+    radius = document.getElementById("radiusText").value;
+    radius = Number(radius);
+    circumference = 2 * PI * radius;
+    document.getElementById("h3").textContent = circumference + "cm";
+}
