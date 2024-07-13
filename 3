@@ -1,0 +1,37 @@
+//variable
+//to assign a variable use let 
+let gpa = 3.4
+let age = 25;
+let price = 10.99;
+let name = "Eftelya";
+let isStudent = true;
+
+console.log(gpa);
+//you can also write sentences on your console as ${variable_name}
+console.log(`You are ${age} years old`);
+console.log(`The price is $${price}.`);
+
+//if you want to display the data type of your variable write typeof
+console.log(typeof gpa);
+console.log(typeof name);
+console.log(typeof isStudent);
+
+//not "" -> use ``
+document.getElementById("p1").textContent = `Your name is ${name}.`;
+document.getElementById("p2").textContent = `Your are ${age} years old.`;
+document.getElementById("p3").textContent = `Enrolled : ${isStudent}.`;
+
+
+//operators
+let number = 3;
+//power is represented with **
+//number **= 2 is the same as number = number ** 2
+number = number ** 2
+console.log(number);
+
+/*operator predence :
+1- ()
+2- **
+3- *, /, %
+4- +, -
+*/
