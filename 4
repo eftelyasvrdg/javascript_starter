@@ -1,0 +1,19 @@
+ //accepting user input
+ /* There are two ways
+ 1- create window prompt
+ 2- html textbox 
+ */
+
+ //1
+ let username;
+ username = window.prompt("What's your username?");
+ console.log(username);
+
+ //2
+ //everything we write after onclick is what we attempt to do after clicking
+ document.getElementById("submit").onclick = function(){
+    name = document.getElementById("usernameText").value;
+    console.log(name);
+    //after submitting lets change our title (h1)
+    document.getElementById("h1").textContent = `Hello ${name}`;
+ }
