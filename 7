@@ -1,0 +1,55 @@
+//MATH : built-in object that provides acollection of properties and methods 
+/*console.log(Math.PI);
+console.log(Math.E);*/
+
+let x = 3.21;
+let y = 2;
+let z;
+
+z = Math.round(x);
+//floor : rounds down
+z = Math.floor(x);
+//ceil : rounds up
+z = Math.ceil(x);
+
+//will erase everything after ,
+z = Math.trunc(x);
+
+z = Math.pow(x,y);
+z = Math.sqrt(x);
+z = Math.log(x);
+z = Math.sin(x);
+z = Math.cos(x);
+z = Math.tan(x);
+z = Math.abs(x);
+
+//sign : if the number is positive it will return 1, if negative -1, and if 0 it will return 0
+z = Math.sign(x);
+
+z = Math.max(x,y,z);
+z = Math.min(x,y,z);
+
+/*console.log(x);
+console.log(z);*/
+
+
+//RANDOM NUMBER 
+//this gives us a random number
+let randomNum = Math.random();
+console.log(randomNum);
+
+//If we want for example a random number between 0 and a number. will write * number
+let randomNumBetween = Math.random() * 6;
+console.log(randomNumBetween);
+
+//to make sure that will get a integer not double we can use floor method
+//and if we want to make sure it starts at 1 not 0, we can simply add 1
+let randomNumBetweenInt = Math.floor(Math.random() * 6) + 1;
+console.log(randomNumBetweenInt);
+
+//to give a random number between min and max
+let min = 50;
+let max = 100;
+//don't forget (max - min)
+let randomNum2 = Math.floor(Math.random() * (max - min)) + min;
+console.log(randomNum2);
