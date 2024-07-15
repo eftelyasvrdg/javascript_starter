@@ -1,0 +1,71 @@
+//HTML CODE
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <input type="checkbox" id="checkbox">
+  <label for="checkbox">subscribe</label><br><br>
+
+  <input type="radio" id="visaBtn" name="card">
+  <label for="visaBtn">Visa</label><br>
+  <input type="radio" id="MasterCardBtn" name="card">
+  <label for="MasterCardBtn">MasterCard</label><br>
+  <input type="radio" id="PaypalBtn" name="card">
+  <label for="PaypalBtn">Paypal</label><br><br>
+
+  <button type="submit" id="submit">submit</button>
+  <p id="subResult"></p>
+  <p id="paymentResult"></p>
+
+<script src="index.js"></script>
+</body>
+</html>
+
+//CSS CODE
+body{
+    font-family: verdana;
+    font-size: 2em;
+}
+#submit{
+    font-size: 1em;
+}
+
+
+//JAVASCRIPT CODE!!!
+// .checked = property that determines the checked state of an
+//html checkbox or radio button element
+
+const checkbox = document.getElementById("checkbox");
+const visa = document.getElementById("visaBtn");
+const mastercard = document.getElementById("MasterCardBtn");
+const paypal = document.getElementById("PaypalBtn");
+const submit = document.getElementById("submit");
+const subResult = document.getElementById("subResult");
+const paymentResult = document.getElementById("paymentResult");
+
+submit.onclick = function() {
+    if(checkbox.checked){
+       subResult.textContent =`You are subscribed.`;
+    }
+    if(!checkbox.checked){
+        subResult.textContent = `You are not subscribed.`;
+    }
+
+    if(visa.checked){
+        paymentResult.textContent = `You are paying with visa.`;
+    }
+    if(mastercard.checked){
+        paymentResult.textContent = `You are paying with mastercard.`;
+    }
+    if(paypal.checked){
+        paymentResult.textContent = `You are paying with paypal.`;
+    }
+    else{
+        paymentResult.textContent = `You must choose a payment method.`;
+    }
+}
