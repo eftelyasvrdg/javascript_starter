@@ -1,0 +1,71 @@
+//HTML CODE 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <label id="countLabel">0</label><br>
+    <div id="buttonContainer">
+<button id="decreaseBtn" class="button">decrease</button>
+<button id="resetBtn" class="button">reset</button>
+<button id="increaseBtn" class="button">increase</button>
+     </div>
+
+<script src="index.js"></script>
+</body>
+</html>
+
+
+
+//CSS CODE
+#countLabel{
+    display: block;
+    text-align: center;
+    font-size: 10em;
+    font-family: Helvetica;
+}
+#buttonContainer{
+    text-align: center;
+    font-size: 2em;
+}
+.button{
+    padding: 10px 20px;
+    font-size: 1.5em;
+    background-color: rgba(150, 150, 246, 0.647);
+    color: white;
+    /* to make the borders rounder */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.25s;
+}
+.button:hover{
+    background-color: rgba(72, 72, 137, 0.605);
+}
+
+
+//JAVASCRIPT CODE 
+const decreaseBtn  = document.getElementById("decreaseBtn");
+const resetBtn  = document.getElementById("resetBtn");
+const increaseBtn  = document.getElementById("increaseBtn");
+const countLabel = document.getElementById("countLabel");
+
+let count = 0;
+increaseBtn.onclick = function(){
+    count++;
+    countLabel.textContent = count;
+}
+
+decreaseBtn.onclick = function(){
+    count--;
+    countLabel.textContent = count;
+}
+
+resetBtn.onclick = function(){
+    count = 0;
+    countLabel.textContent = count;
+}
