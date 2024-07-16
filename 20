@@ -1,0 +1,37 @@
+//.map
+//accepts a callback and applies that function 
+//to each element of an array, then return a new array
+const numbers = [1, 2, 3, 4, 5];
+const students = ["Spongebob", "Patrick", "Squidward", "Sandy"];
+
+function square(element){
+    return Math.pow(element,2);
+}
+const squares =numbers.map(square);
+console.log(squares); 
+
+function toLower(element){
+    return element.toLowerCase();
+}
+const lower = students.map(toLower);
+console.log(lower);
+
+const dates = ["2024-1-10","2025-2-20","2026-3-30"];
+function formatDates(element){
+    const parts = element.split("-");
+    return`${parts[2]}/${parts[1]}/${parts[0]}`;
+}
+const formatDate = dates.map(formatDates);
+console.log(formatDate);
+
+
+//•filter ()
+//creates a new array by filtering out elements
+let numberss = [1, 2, 3, 4, 5, 6, 7];
+function isEven(element){
+    return element % 2 === 0;
+}
+const evenNums = numberss.filter(isEven);
+console.log(evenNums);
+
+
