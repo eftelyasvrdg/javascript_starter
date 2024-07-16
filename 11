@@ -1,0 +1,47 @@
+//TERNARY OPERATOR
+//a shortcut to if and else statements helps to assgn a variable based on a condition
+//condition ? codeIfTrue: codeIfFalse:
+
+let age = 2;
+//what is written in the message is going to change according to age result
+let message = age >= 18 ? "You are an adult." : "You are a minor";
+console.log(message); 
+
+let isStudent = true;
+let correct = isStudent ? "You are a student." : "You are not a student.";
+console.log(correct);
+
+//if a purchase is over 100 dolars you get a 10 percent discount
+let purchase = 125;
+let discountedPurchase = purchase >= 100 ? (purchase - (purchase*10/100)) : purchase;
+console.log(discountedPurchase);
+
+
+//SWITCH
+let day = 1;
+switch(day){
+    //If there was a case such like weekdays. We could have said if case : day <= 5 
+    case 1 : 
+    console.log("Today is Monday.");
+    break;
+    case 2 : 
+    console.log("Today is Tuesday.");
+    break;
+    case 3 : 
+    console.log("Today is Wednesday.");
+    break;
+    case 4 : 
+    console.log("Today is Thursday.");
+    break;
+    case 5 : 
+    console.log("Today is Friday.");
+    break;
+    case 6 : 
+    console.log("Today is Saturday.");
+    break;
+    case 7 : 
+    console.log("Today is Sunday.");
+    break;
+    default :
+    console.log(`Please enter a valid day. ${day} is not a day.`);
+}
