@@ -1,0 +1,98 @@
+//HTML CODE
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <div id="container">
+  <h1 id="h1">Dice Roller</h1><br>
+  <label >Number of dice</label><br><br>
+  <input type="number" id="numOfDice" value="1" min="1"><br><br>
+  <button onclick="rollDice()" >Roll Dice</button><br>
+  <div id="diceResult"></div><br>
+  <div id="diceImages"></div><br>
+ </div>
+
+<script src="index.js"></script>
+</body>
+</html>
+
+
+//CSS CODE
+#container{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+}
+button{
+    font-size: 1.5rem;
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(44, 132, 214);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+button:hover{
+    background-color: rgba(44, 132, 214, 0.651);
+}
+button:active{
+    background-color: rgba(15, 77, 191, 0.773);
+}
+input{
+    font-size: 2rem;
+    width: 150px;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+//JAVASCRIPT CODE
+//DICE ROLLER PROGRAM
+
+function convert(number){
+   switch(number){
+    case 1 : 
+    return "one";
+    break;
+    case 2 : 
+    return "two";
+    break;
+    case 3 : 
+    return "three";
+    break;
+    case 4 : 
+    return "four";
+    break;
+    case 5 : 
+    return "five";
+    break;
+    case 6 : 
+    return "six";
+    break;
+  }
+}
+
+function rollDice(){
+    const numOfDice = document.getElementById("numOfDice").value;
+    const numResult = document.getElementById("diceResult");
+    const diceImages = document.getElementById("diceImages");
+    const values = [];
+    const images = [];
+
+    for(let i = 0; i < numOfDice; i ++){
+        const value = Math.floor(Math.random() * 6) + 1;
+        values.push(value);
+        const imgValue = convert(value);
+        images.push(`<img src="dice_images/dice-six-faces-${imgValue}.png">`);
+    }
+
+    numResult.textContent = `dice: ${values.join(`, `)}`;
+    diceImages.innerHTML = images.join(``);
+}
