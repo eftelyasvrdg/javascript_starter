@@ -1,0 +1,34 @@
+//OBJECTS
+//= A collection of related properties and/or methods 
+//Can represent real world objects (people, products, places)
+//object = {Key : value,
+//          function()}
+
+const Person = {
+    name: "Eftelya",
+    surname: "Sivridag",
+    age: 21,
+    isStudent: true,
+    //this = reference to the object where THIS is used
+    //this doesn't work with arrow functions
+    hello : function(){console.log(`Hello I'm ${this.name}`);},
+    eat : () => {console.log("I'm eating pizza.");}
+}
+console.log(Person);
+console.log(Person.name);
+Person.hello();
+Person.eat();
+
+//CONSTRUCTOR
+//special method for defining the properties and methods of objects
+function Car(make, model, year, color){
+    this.make = make;
+    this.model = model;
+    this.year = year;
+    this.color = color;
+    this.drive = function (){console.log(`You drive the ${this.model}`);}
+}
+
+const car1 = new Car("Ford", "Mustang", 2018, "red");
+console.log(car1);
+car1.drive();
