@@ -1,0 +1,39 @@
+//STATIC
+//keyword that defines properties or methods that belong to a class itselt 
+//rather chan the objects created from that class
+//class class owns anything static, not the objects
+
+class MathUtil{
+    static PI = 3.14159;
+    static getDiameter(radius){
+        return radius * 2;
+    }
+    static getCircumference(radius){
+        return 2 * radius * this.PI;
+    }
+}
+
+//while using static you don't have to create a new product such as
+//const x = new MathUtil();
+console.log(MathUtil.PI);
+console.log(MathUtil.getDiameter(5));
+console.log(MathUtil.getCircumference(5));
+
+
+class User{
+    static userCount = 0;
+    constructor(username){
+        this.username = username;
+        User.userCount++;
+    }
+    static getUserCount(){
+        console.log(`There are ${User.userCount} users.`);
+    }
+}
+const user1 = new User("Eftelya");
+const user2 = new User("Ece");
+const user3 = new User("Melis");
+const user4 = new User("Melisa");
+console.log(user1.username);
+console.log(User.userCount);
+User.getUserCount();
