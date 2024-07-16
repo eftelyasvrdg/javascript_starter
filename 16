@@ -1,0 +1,45 @@
+//REST PARAMETERS
+//...
+//This does the opposite of the spread operator
+//spread = expands an array into seperate elements
+//rest = bundles seperate elements into an array
+
+//for example if we have an function where we don't know 
+//how many parameters are needed be can use rest
+
+let food1 = "pizza";
+let food2 = "hamburger";
+let food3 = "hotdog";
+let food4 = "sushi";
+let food5 = "ramen";
+
+function fridge(...foods){
+    //here in the parameter we used rest
+    //and in the console.log we used spread
+    console.log(...foods);
+}
+
+function getFoods(...foods){
+    return foods;
+}
+
+fridge(food1,food2,food3,food4,food5);
+
+let foods = getFoods(food1, food2, food3, food4, food5);
+console.log(foods);
+
+function sum(...numbers){
+    let result = 0;
+    for(let i = 0; i < numbers.length; i++){
+      result += numbers[i];
+    }
+    return result;
+}
+console.log(sum(1,2,3,4,5));  
+
+//we can also use the rest operator to combine strings
+function combineStrings(...strings){
+    return strings.join(" ");
+} 
+let fullname = combineStrings("yavuz", "sultan", "selim");
+console.log(fullname);
