@@ -1,0 +1,30 @@
+//NUMBER GUESSING GAME
+const min = 1;
+const max = 100;
+const random = Math.floor(Math.random() * (max - min)) + min;
+
+let attempt = 0;
+let guess;
+let running = true;
+
+while(running){
+    guess = window.prompt(`Guess a number between ${min} and ${max} :`);
+    guess = Number(guess);
+
+    if(isNaN(guess) || guess <= min || guess >= max){
+        window.alert(`Please enter a valid number`);
+    }
+    else{
+        attempt++;
+        if(guess > random){
+            window.alert(`attempt no : ${attempt}. It is lower.`);
+        }
+        else if(guess < random){
+            window.alert(`attempt no : ${attempt}. It is higher.`);
+        }
+        else{
+            window.alert(`attempt no : ${attempt}. CORRECT!! the number was ${random}`);
+            running = false;
+        }
+    }
+}
