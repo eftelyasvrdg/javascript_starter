@@ -1,0 +1,57 @@
+//ARRAYS
+let fruits = ["orange", "strawberry", "apple"];
+
+//to add an element to the end we can use push 
+fruits.push("banana");
+
+//to delete de last element we can use pop
+fruits.pop();
+
+//to add to the beggining. unshift("name")
+fruits.unshift("pineaplle");
+
+//to delete from the beggining. shift()
+fruits.shift();
+
+//to get the length
+let numOfFruits = fruits.length;
+console.log(numOfFruits);
+
+//to get the index of a value. .indexOf("valueofIndex")
+let index = fruits.indexOf("apple");
+//if index return -1, the value isn't in the array
+console.log(index);
+
+//these two for loops give the same result
+for(let i = 0; i < numOfFruits; i++){
+    console.log(fruits[i]);
+}
+//more enchaned
+for(let fruit of fruits){
+    console.log(fruit);
+}
+
+//to sort in an alphabetical order. .sort()
+fruits.sort();
+//to sort in an alphabetical reverse order. .sort().reverse()
+fruits.sort().reverse();
+
+//spread operator = ...
+//we can not use a arrays values directly into functions
+//but this operator unpacks elements
+let numbers = [1,2,3,4,5];
+let maximum = Math.max(...numbers);
+let minimum = Math.min(...numbers);
+console.log(maximum);
+console.log(minimum);
+
+//you can also spread an string into a array with this operator
+let username = "Eftelya";
+let letters = [...username];
+console.log(letters);
+
+//we also can use this operator to combine to different arrays
+let coldColors = ["blue", "purple", "pink"];
+let warmColors = ["orange","red", "yellow"];
+let colors =[...coldColors, ...warmColors, "black", "white"];
+console.log(colors);
