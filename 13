@@ -1,0 +1,36 @@
+//METHOD CHAINING
+//Calling one method after another in one continuous lane of code.
+
+let username = window.prompt("Enter you username: ");
+
+//without chaining
+username = username.trim();
+
+let letter = username.charAt(0); 
+letter = letter.toLocaleUpperCase();
+
+let extraChars = username.slice(1);
+extraChars = extraChars.toLocaleLowerCase();
+
+username = letter + extraChars;
+console.log(username);
+
+//with chaining
+username = username.trim().charAt(0).toLocaleUpperCase() + username.trim().slice(1).toLocaleLowerCase();
+console.log(username);
+
+
+//STRICT EQUALITY
+//= assignment operator
+//== comparison operator (compare if values are equal)
+//=== strict equality operator (compare if values & datatype are equal)
+//!= inequality operator !== strict inequality operator
+const PI = 3.14;
+//if we use == it will return true, if we use === it will return false
+if(PI === "3.14"){
+    console.log("That is PI.");
+}
+else{
+    console.log("That is not PI.");
+}
+
