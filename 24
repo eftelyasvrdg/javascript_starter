@@ -1,0 +1,31 @@
+//CLASS
+//provides a more structured and cleaner way to work with objects
+//compared to traditional constructor function
+//ex. static keyword, encapsulation, inheritance
+
+class Product{
+   constructor(name, price){
+    this.name = name;
+    this.price = price;
+   }
+
+   //inside a class there is no need to write function
+   displayProduct(){
+    console.log(`Product : ${this.name}`);
+    //toFixed method makes sure that after , there are two integers such as 12,00 - 19,99 ex.
+    console.log(`Price : $${this.price.toFixed(2)}`);
+   }
+
+   calculateWithTax(salesTax){
+    return this.price + (this.price * salesTax);
+   }
+}
+
+const salesTax = 0.05;
+
+const product1 = new Product("Shirt", 19.99);
+const product2 = new Product("Dress", 100);
+product1.displayProduct();
+product2.displayProduct();
+
+console.log(product2.calculateWithTax(salesTax));
