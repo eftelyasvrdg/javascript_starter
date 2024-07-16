@@ -1,0 +1,35 @@
+//FUNCTION
+function Birthday(username, age){
+    console. log("Happy birthday to you!"); 
+    console.log("Happy birthday to you!");
+    console.log(`Happy birthday dear ${username}!`);
+    console. log("Happy birthday to you!"); 
+    console. log(`You are ${age} years old`);
+}
+
+Birthday("Eftelya",21);
+Birthday("Ece",37);
+
+function add(x, y){
+    let result = x + y;
+    return result;
+}
+let answer = add(2,3);
+console.log(answer);
+
+function isEven(num){
+return num % 2 === 0 ? true : false;
+}
+console.log(isEven(2));
+
+
+//VARIABLE SCOPE
+//where a variable is recognized and accessible (local vs global)
+
+//global
+let x = 10;
+
+function local(){
+    //local
+    let y = 12;
+}
