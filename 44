@@ -1,0 +1,63 @@
+//NODELIST
+//Static collection of HTML elements by (id, class, element)
+//Can be created by using querySelectorAll()
+//Similar to an array, but no (map, tilter, reduce), can use forEach
+//NodeList won't update to automatically reflect changes
+let buttons = document.querySelectorAll(".myButtons");
+let isClicked = false;
+
+//making change
+buttons.forEach(button => {
+    button.style.backgroundColor = "pink";
+})
+
+//click
+buttons.forEach(button =>{
+    {
+        button.addEventListener("click", event =>{
+            if(!isClicked){
+            event.target.style.backgroundColor = "lightGreen";
+            isClicked = true;
+        }
+        else{
+                event.target.style.backgroundColor = "pink";
+                isClicked = false;
+             }
+         })
+    }   
+})
+
+//mouseover
+buttons.forEach(button =>{
+    button.addEventListener("mouseover",event =>{
+        event.target.style.backgroundColor = "yellow";
+    })
+})
+
+//mouseout
+buttons.forEach(button =>{
+    button.addEventListener("mouseout",event =>{
+        event.target.style.backgroundColor = "pink";
+    })
+})
+
+//add element
+const newButton = document.createElement("button");
+newButton.id = "newButton";
+newButton.textContent = "New Button";
+newButton.classList = "myButtons";
+document.body.appendChild(newButton);
+//the changes will not be made automatticaly because it will not be added to nodelist
+//you have to write buttons = document.querySelectorAll(".myButtons"); again(then it will be)
+//or just add the new element to the top of the code
+buttons = document.querySelectorAll(".myButtons");
+
+//the same happens with remove
+//when you remove an object if you do not write buttons = document.querySelectorAll(".myButtons");
+//it will not be deleted from the nodelist
+buttons.forEach(button =>{
+    button.addEventListener("click", event =>{
+        event.target.remove();
+        buttons = document.querySelectorAll(".myButtons");
+    })
+})
