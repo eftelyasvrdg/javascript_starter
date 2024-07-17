@@ -1,0 +1,23 @@
+//DOM = DOCUMENT OBJECT MODEL
+//object that represents the pace vou see in the wed browser 
+//and provides you with an API to interact with it.
+//Web browser constructs the DOM when it loads an HTML document, 
+//and structures all the elements in a tree-like representation.
+//Javascript can access to the DOM dynamically
+//change the content, structure, and style of a web page.
+
+//to get our HTML file
+console.log(document);
+
+//to get all our objects
+console.dir(document);
+
+//you can change the objects inside the document by document.objectName = "newName";
+document.title = "My Website";
+
+//to make your site dark themed
+document.body.style.backgroundColor ="hsl(0, 0%, 15%)";
+
+const myName = "Eftelya";
+const user = document.getElementById("username");
+user.textContent += myName === "" ? `Guest` : myName;
