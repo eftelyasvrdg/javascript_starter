@@ -1,0 +1,82 @@
+//NESTED OBJECTS
+//Objects inside of other Objects
+//AULlLOWs vouto redresent more complex Data structures
+//Child obnect is enclosed by a Parent Object
+//Person {Address}, {contactinfo}}
+//ShoppingCart {Keyboard{}, Mouse{}, Monitor{}}
+
+const person = {
+    fullname: "Eftelya Sivridag",
+    age: 21,
+    isStudent: true,
+    hobbies: ["fitness","reading"],
+    address: {
+        street: "123 street",
+        city: "izmir",
+        country: "turkey"
+    }
+}
+
+console.log(person.fullname);
+console.log(person.hobbies[0]);
+console.log(person.address.city);
+
+for(const property in person.address){
+    console.log(person.address[property]);
+}
+
+class Person{
+   constructor(name, age, ...address){
+    this.name = name;
+    this.age = age;
+    this.address = new Address(...address);
+   }
+}
+
+class Address{
+    constructor(street,city,country){
+        this.street = street;
+        this.city = city;
+        this.country = country;
+    }
+}
+
+const person1 = new Person("isim",27,"street1",
+                                    "city1",
+                                    "country1");
+
+console.log(person1.name);
+console.log(person1.age);
+console.log(person1.address.street);
+
+
+//ARRAY OF OBJECTS
+const fruits = [{name: "apple",color:"red",calories: 95},
+                {name: "orange",color:"orange",calories: 45},
+                {name: "banana",color:"yellow",calories: 105},
+                {name: "coconut",color:"white",calories: 159}];
+
+console. log(fruits[0].calories);
+console. log(fruits[1].calories);
+
+fruits.push({name: "grapes",color:"purple",calories: 65});
+console.log(fruits);
+fruits.pop();
+console.log(fruits);
+
+//this will return every object
+fruits.forEach( fruit => console.log(fruit));
+fruits.forEach( fruit => console.log(fruit.name));
+
+//map
+fruitNames = fruits.map(fruit => fruit.name);
+console.log(fruitNames);
+
+//filter
+const yellowFruits = fruits.filter(fruit => fruit.color === "yellow");
+console.log(yellowFruits);
+
+//reduce
+const highestCal = fruits.reduce((acummulator,Element) => 
+    Element.calories > acummulator.calories ? Element : acummulator);
+console.log(highestCal);
