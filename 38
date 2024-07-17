@@ -1,0 +1,84 @@
+//HTML CODE
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1 id="username">Hello </h1>
+
+<div class="myClass">element1</div>
+<div class="myClass">element2</div>
+<div class="myClass">element3</div>
+
+<h4>Root vegetables</h4>
+<ul>
+  <li>Beets</li>
+  <li>Carrots</li>
+  <li>Potatoes</li>
+</ul>
+<h4>non-Root vegetables</h4>
+<ul>
+  <li>Brocoli</li>
+  <li>Celery</li>
+  <li>Onions</li>
+</ul>
+
+<script src="index.js"></script>
+</body>
+</html>
+
+
+
+//JAVASCRIPT CODE
+//ELEMENT SELECTORS
+
+//1- document.getElementById("") : if there isn't such an element with given id returns null
+const element = document.getElementById("username");
+element.style.backgroundColor ="Yellow";
+element.style.textAlign = "center";
+console.log(element); //if available -> html code of element, if not -> null
+
+//2- document.getElementByClassName("") : html collection
+//HTML collections don't have a forEach method
+const classTry = document.getElementsByClassName("myClass");
+console.log(classTry); 
+classTry[0].style.backgroundColor = "Yellow";
+for(let element of classTry){
+    element.style.backgroundColor = "Red";
+}
+//if we want to use forEach
+Array.from(classTry).forEach(element =>{
+    element.style.backgroundColor = "Blue";
+})
+
+//3- document.getElementsByTagName("") : html collection
+const h4Elements = document.getElementsByTagName("h4");
+const liElements = document.getElementsByTagName("li");
+h4Elements[0].style.backgroundColor = "Yellow";
+for(let element of h4Elements){
+    element.style.backgroundColor = "Red";
+}
+for(let element of liElements){
+    element.style.backgroundColor = "lightGreen";
+}
+
+//if we want to use forEach
+Array.from(liElements).forEach(element =>{
+    element.style.backgroundColor = "lightBlue";
+})
+
+//4-document.querySelector("")
+//return the first element if available, if not returns null
+const firstElement = document.querySelector("h4");
+firstElement.style.backgroundColor = "purple";
+
+//5-document.querySelectorAll("") : nodelist
+//can use forEach method
+const queryTry = document.querySelectorAll("li");
+queryTry.forEach(element => {
+    element.style.backgroundColor = "pink";
+});
