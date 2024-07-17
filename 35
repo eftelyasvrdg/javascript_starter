@@ -1,0 +1,49 @@
+//SYNCHRONOUS : what normally happens. Executes line by line consecutively in a sequential manner.
+//ASYNCHRONOUS : Allows multiple operations to be performed concurrently without waiting
+//Doesn't block the execution flow and allows the program to continue
+//controlling the timing of operations by the use of pulses sent 
+//when the previous operation is completed rather than at regular intervals.
+//Handled with: Callbacks, Promises, Async/Await
+
+function func1(callback){
+    setTimeout(() => {console.log("Task 1");
+                                   callback();},3000);
+}
+
+function func2(){
+    console.log("Task 2");
+    console.log("Task 3");
+    console.log("Task 4");
+}
+
+func1(func2);
+
+
+//ERROR
+//An Object that is created to represent a problem that occurs
+//occur often with user anout or estabblishing a connection
+
+// try{} : Encloses code that might potentially cause an error
+//catch{} : Catch and handle any thrown Errors from try{}
+//finally{} : (optional) Always executed. Used most for clean up 
+//ex. close files, close connections, release resources
+
+try{
+    const dividend = Number(window.prompt("Enter a dividend :"));
+    const divisor = Number(window.prompt("Enter a divisor :"));
+
+    if(divisor === 0){
+        throw new Error("divisor can not be 0");
+    }
+    if(isNaN(dividend) || isNaN(divisor)){
+        throw new Error("please enter a number");
+    }
+    const result = dividend / divisor;
+    console.log(`result : ${result}`);
+}
+catch(error){
+    console.error(error);
+}
+finally{
+    console.log(`This will always show.`);
+}
