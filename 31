@@ -1,0 +1,67 @@
+//CLOSURE
+//A function defined inside of another function, 
+//the inner tunction has access to the variables and scone ot the outer function.
+//Allow for private variables and state maintenance
+//Used frequently in JS frameworks: React, Vue, Angular
+//purpose = first call x function before y.
+
+function outer(){
+    let message = "Hello";
+    function inner(){
+        console.log(message);
+    }
+    inner();
+}
+outer();
+
+
+function createGame(){
+    let score = 0;
+    function increaseScore(points){
+        score+= points;
+        console.log(`+${points} points.`);
+    }
+    function decreaseScore(points){
+        score-= points;
+        console.log(`-${points} points.`);
+    }
+    function getScore(){
+        return score;
+    }
+
+    return{increaseScore,decreaseScore,getScore};
+}
+
+
+const game = createGame();
+game.increaseScore(5);
+game.increaseScore(10);
+game.decreaseScore(4);
+console.log(game.getScore());
+
+
+//set time out
+//setTimeout(callback, delay);
+//clearTimeout(timeoutId) = can cancel a timeout before it triggers. timeoutId is
+//another variable to name the timeout
+
+function Hello(){
+    window.alert("Hello");
+}
+const timeout =setTimeout(Hello,3000);
+
+const timeout2 = setTimeout(()=>{window.alert("Hellooo")},1000);
+clearTimeout(timeout);
+clearTimeout(timeout2);
+
+let timerId;
+
+function startTimer(){
+    timerId = setTimeout(() => window.alert("Hey"), 5000);
+    console.log("started");
+}
+
+function clearTimer(){
+    clearTimeout(timerId);
+    console.log("cleared");
+}
