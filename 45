@@ -1,0 +1,64 @@
+//CSS CODE
+#myButton{
+    font-size: 4rem;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+}
+.enabled{
+    background-color: hsl(211, 74%, 56%);
+    color: white;
+}
+.hover{
+    background-color: hsl(211, 74%, 75%);
+}
+.disabled{
+    background-color: hsl(0, 0%, 35%);
+}
+
+
+
+
+//JAVASCRIPT CODE
+//CLASSLIST
+//Element property in JavaScript used to interact with CSS classes
+//Allows you to make reusable classes for many elements
+
+const myButton = document.getElementById("myButton");
+const myH1 = document.getElementById("myH1");
+
+//add() : .classlist.add("nameOfClass");
+myButton.classList.add("enabled");
+myH1.classList.add("enabled");
+
+//remove() : .classList.remove("nameOfClass");
+myButton.classList.remove("enabled");
+
+//toggle() : if you do it once it will do the class, if you will do it again it will undo the class
+//same can be done with writting add and after that remove when needed.
+myButton.addEventListener("mouseover", event =>{
+    myButton.classList.toggle("hover");
+})
+myButton.addEventListener("mouseout", event =>{
+    myButton.classList.toggle("hover");
+})
+
+myH1.addEventListener("mouseover", event =>{
+    myH1.classList.toggle("hover");
+})
+myH1.addEventListener("mouseout", event =>{
+    myH1.classList.toggle("hover");
+})
+
+//replace(oldclass, newclass)
+//contains() : will return true if the element contains that class, false otherwise
+myButton.classList.add("enabled");
+myButton.addEventListener("click", event =>{
+    if(event.target.classList.contains("disabled")){
+        event.target.classList.replace("disabled", "enabled");
+    }
+    else{
+        event.target.classList.replace("enabled", "disabled");
+    }
+})
