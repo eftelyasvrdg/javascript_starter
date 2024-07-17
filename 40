@@ -1,0 +1,29 @@
+//ADD AND CHANGE THE ELEMENT
+//1-create the element
+const newH1 = document.createElement("h1");
+
+//2-add attributes/properties
+newH1.textContent = "This is my new h1 element.";
+newH1.id ="myH1";
+newH1.style.color = "Pink";
+newH1.style.textAlign = "center";
+
+//3-append element to dom
+//when append : the element is the last element 
+document.body.append(newH1);
+document.body.prepend(newH1);
+document.getElementById("box1").append(newH1);
+
+//if I want to put my element between two element I can use 
+//.insertBefore(newElement,currentElement)
+const Box2 = document.getElementById("box2");
+document.body.insertBefore(newH1,Box2);
+
+//if the elements didn't have IDs we could use .querySelectorAll()
+const boxes = document.querySelectorAll(".box");
+document.body.insertBefore(newH1,boxes[3]);
+
+//remove html element
+//document.directParentOfElement.removeChild(elementName)
+document.body.removeChild(newH1);
+//if it was inside box1 : document.getElementbyId("box1").removeChild(newH1);
