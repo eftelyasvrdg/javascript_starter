@@ -1,0 +1,46 @@
+//DOM Navigation = The process of navigating through the structure
+//of an HTML document using Javascript.
+
+//1-.firstElementChild
+const element = document.getElementById("list1");
+const firstElement = element.firstElementChild;
+firstElement.style.backgroundColor = "yellow";
+
+const ulElements = document.querySelectorAll("ul");
+ulElements.forEach(ulElement => {
+    const firstChild = ulElement.firstElementChild;
+    firstChild.style.backgroundColor = "pink";
+})
+
+//2-.lastElementChild : same as first but last
+ulElements.forEach(ulElement => {
+    const lastChild = ulElement.lastElementChild;
+    lastChild.style.backgroundColor = "lightBlue";
+})
+
+//3-.nextElementSibling
+const current = document.getElementById("a");
+const sibling = current.nextElementSibling;
+sibling.style.backgroundColor = "lightGreen";
+
+const currentList = document.getElementById("list1");
+const siblingList = currentList.nextElementSibling;
+
+//3-.previousElementSibling : same as next but previous
+const currentlast = document.getElementById("c");
+const siblingbefore = currentlast.previousElementSibling;
+siblingbefore.style.backgroundColor = "red";
+
+//4-.parentElement : the parent is the element that contains the others
+const elementDeneme = document.getElementById("a");
+const parent = elementDeneme.parentElement;
+parent.style.backgroundColor = "yellow";
+
+//5-.children : the same as parent but child. if you want to get all children you may use forEach
+//but because this is an html element you have to first convert it to an array
+const el = document.getElementById("list2");
+const children = el.children;
+Array.from(children).forEach(child => {
+    child.style.backgroundColor = "pink";
+})
+children[1].style.backgroundColor = "orange";
