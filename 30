@@ -1,0 +1,74 @@
+//sort()
+//method used to sort elements of an array in place.
+//Sorts elements as strings in lexicographic order. not alphabetical
+//lexacographic = (alphabet + numbers + symbols) as strings
+
+let fruits = ["apple", "orange", "banana", "coconut", "pineapple"];
+fruits = fruits.sort();
+console.log(fruits);
+
+//while sorting numbers we see some issues to fix that
+let numbers = [1, 10, 2, 9, 3, 8, 4, 7, 5, 6];
+//sort increasingly
+numbers = numbers.sort((a, b) => (a - b));
+//sort decreasigly
+numbers = numbers.sort((a, b) => (b - a));
+
+const people= [{name:"Eftelya", age: 30, gpa: 3.0}, 
+              {name: "Ece", age: 37, gpa: 1.5}, 
+              {name: "Melis", age: 51, gpa: 2.5}, 
+              {name:"Melisa", age: 27, gpa: 4.0}]
+people.sort((a, b) => (a.age - b.age));
+console.log(people);
+
+//to compore string use a.stringName.localeCompare(b.stringName);
+people.sort((a, b) => (a.name.localeCompare(b.name)));
+console.log(people);
+
+
+//shuffle
+//fisher-yates algorithm
+const cards = [`A`,2,3,4,5,6,7,8,9,10,`J`,`Q`,`K`];
+function shuffle(array){
+  for(let i = array.length - 1; i > 0 ; i--){
+    const random = Math.floor(Math.random() * (i + 1));
+    [array[i], array[random]] = [array[random], array[i]];
+  }
+}
+shuffle(cards);
+console.log(cards);
+
+
+//Date
+//Date(year, month, day, hour, minute, second, ms)
+//for month = 0 -> january, 1 ->february...
+//for day of week : 1 -> monday, 2 -> tuesday...
+const currentDate = new Date();
+const manualDate = new Date(2024,0,1,2,3,4,5);
+console.log(currentDate);
+console.log(manualDate);
+
+const date = new Date();
+const year = date.getFullYear();
+const month = date.getMonth();
+//to get day of month
+const day = date.getDate();
+//to get day of week
+const dayOfWeek = date.getDay();
+const hour = date.getHours();
+const minute = date.getMinutes();
+const second = date.getSeconds();
+const msecond = date.getMilliseconds();
+
+console.log(year);
+console.log(month);
+console.log(day);
+console.log(dayOfWeek);
+console.log(hour);
+console.log(minute);
+console.log(second);
+console.log(msecond);
+
+//you can also change the date by set
+date.setFullYear(2020);
+console.log(date);
