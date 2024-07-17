@@ -1,0 +1,39 @@
+//mathUtil.js file
+//to make sure that you can import what you have written into other js classes
+//you have to write export before your variables and functions
+
+export const PI = 3.1459;
+
+export function getCircumference(radius){
+    return PI * 2 * radius;
+}
+
+export function getArea(radius){
+    return PI * radius * radius;
+}
+
+export function getVolume(radius){
+    return PI * 4 * radius * radius;
+}
+
+
+//index.js file
+//ES6 MODULE
+//An external file that is reusable code that can be imported into other javascript files
+//can contain variables , classes, functions... and more
+
+//in the html code <script type="module" src="index.js"></script> !!!
+//to import the files import {variables,functions} from `placeofTheFile`;
+//because they are the same folder we can ./name
+//after from don't use ` or "" use ' !!!!!
+import {PI, getCircumference, getArea, getVolume} from './mathUtil.js';
+
+//.toFixed(x) : deletes whats after the xth after 0
+const circumference = getCircumference(10).toFixed(2);
+const area = getArea(10).toFixed(2);
+const volume = getVolume(10).toFixed(2);
+
+console.log(PI);
+console.log(circumference);
+console.log(area);
+console.log(volume)
