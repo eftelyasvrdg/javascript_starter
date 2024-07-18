@@ -1,0 +1,100 @@
+//CALLBACK HELL
+//Situation in JavaScript where callbacks are nested inn other calloacks to the degree 
+//where the code is ditticult to read. Old pattern to handle asynchronous functions.
+//Use promises async/await to avoid Callback Hell
+
+function task1(Callback){
+    setTimeout(() =>{
+        console.log("task1 is completed.");
+        Callback();
+    },2000);
+}
+
+function task2(Callback){
+    setTimeout(() =>{
+        console.log("task2 is completed.");
+        Callback();
+    },3000);
+}
+
+function task3(Callback){
+    setTimeout(() =>{
+        console.log("task3 is completed.");
+        Callback();
+    },500);
+}
+
+function task4(Callback){
+    setTimeout(() =>{
+        console.log("task4 is completed.");
+        Callback();
+    },1500);
+}
+
+
+//this but with more tasks is an example of callback hell
+/*task1(()=>{
+    task2(()=>{
+        task3(()=>{
+            task4(()=>{
+                console.log("all tasks complete!!!!");
+            })
+        })
+    })
+})*/
+
+
+//PROMISES
+//An object that manages asynchronous operations. Wrap a promise object around asynchronous codes
+//"I promise to return a value"
+//PENDING => RESOLVED or REJECTED
+//new Promise((resolve, reject)) =>{asynchronous code}
+
+function walkDog(){
+    return new Promise((resolve, reject) => {
+        setTimeout(() =>{
+            const dogWalked = true;
+            if(dogWalked){
+                resolve("Walk the dog");
+            }
+            else{
+                reject("You didn't walk the dog");
+            }
+        },1500);
+    });
+}
+
+function cleanKitchen(){
+    return new Promise((resolve, reject) => {
+        setTimeout(() =>{
+            const kitchenCleaned = false;
+            if(kitchenCleaned){
+                resolve("You clean the kitchen");
+            }
+           else{
+            reject("You didn't clean the kitchen");
+           }
+        },3000);
+    });
+}
+
+function takeTrash(){
+    return new Promise((resolve, reject) => {
+        setTimeout(() =>{
+            const trashTaken = true;
+            if(trashTaken){
+                resolve("Take out the trash");
+            }
+            else{
+                reject("You didn't took the trash out.");
+            }
+          
+        },500);
+    });
+}
+
+//if one gets rejected, the rest doesn't continue
+walkDog().then(value =>{ console.log(value); return cleanKitchen()})
+       .then(value =>{console.log(value); return takeTrash()})
+       .then(value =>{console.log(value); console.log("You finished all your tasks.")})
+       .catch(error =>console.log(error));
