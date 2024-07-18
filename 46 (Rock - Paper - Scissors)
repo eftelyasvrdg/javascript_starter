@@ -1,0 +1,146 @@
+//Rock - Paper - Scissors GAME
+//HTML CODE
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Rock - Paper - Scissors</h1>
+<div class="choices">
+  <button id="rock">👊</button>
+  <button id="paper" >✋</button>
+  <button id="scissors">✌️ </button>
+</div>
+<div id="playerDisplay">Player : </div>
+<div id="computerDisplay">Computer : </div>
+<div id="resultDisplay"></div>
+
+<div class="scoreDisplay">Player Score:
+  <span id="playerScorDisplay">0</span>
+</div>
+<div class="scoreDisplay">Computer Score:
+  <span id="computerScorDisplay">0</span>
+</div>
+<script src="index.js"></script>
+</body>
+</html>
+
+
+//CSS CODE
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h1{
+    font-size: 3.5rem;
+    color: hsl(0, 0%, 20%);
+}
+.choices{
+    margin-bottom: 30px;
+}
+.choices button{
+    font-size: 7.5rem;
+    width: 150px;
+    margin: 0 10px ;
+    border-radius: 250px;
+    background-color: rgb(27, 134, 205);
+    border: none;
+    cursor: pointer;
+    transition: background-color ease 0.5s;
+}
+.choices button:hover{
+    background-color: hsl(204, 77%, 65%);
+}
+#playerDisplay, #computerDisplay{
+font-size: 2rem;
+}
+#resultDisplay{
+    font-size: 5rem;
+    margin: 30px 0px;
+}
+.greenText, #playerScorDisplay{
+color: rgb(34, 123, 34);
+}
+.redText, #computerScorDisplay{
+color: rgb(177, 94, 94);
+}
+.scoreDisplay{
+    font-size: 1.25rem;
+}
+
+
+//JAVASCRIPT CODE
+const choices = ["rock","paper","scissors"];
+const resultDisplay = document.getElementById("resultDisplay");
+const playerDisplay = document.getElementById("playerDisplay");
+const computerDisplay = document.getElementById("computerDisplay");
+const rockButton = document.getElementById("rock");
+const paperButton = document.getElementById("paper");
+const scissorsButton = document.getElementById("scissors");
+const playerScoreDisplay = document.getElementById("playerScorDisplay");
+const computerScoreDisplay = document.getElementById("computerScorDisplay");
+let playerScore = 0;
+let computerScore = 0;
+
+function playgame(choice){
+    const computerChoice = choices[Math.floor(Math.random() * 3)];
+    console.log(computerChoice);
+    let result = "";
+    if(choice === computerChoice){
+       result = "IT'S A TIE.";
+       playerScore++;
+       computerScore++;
+       computerScoreDisplay.textContent = computerScore;
+       playerScoreDisplay.textContent = playerScore;
+    }
+    else{
+        switch(choice){
+            case "rock": 
+            result = (computerChoice === "scissors" ? "YOUR WIN!" : "YOUR LOSE...");
+        }
+        switch(choice){
+            case "paper": 
+            result = (computerChoice === "rock" ? "YOUR WIN!" : "YOUR LOSE...");
+        }
+        switch(choice){
+            case "scissors": 
+            result = (computerChoice === "paper" ? "YOUR WIN!" : "YOUR LOSE...");
+        }
+    }
+    playerDisplay.textContent = `Player : ${choice}`;
+    computerDisplay.textContent = `Computer : ${computerChoice}`;
+    resultDisplay.textContent = `${result}`;
+    
+    resultDisplay.classList.remove("greenText","redText");
+    switch(result){
+        case "YOUR WIN!":
+        resultDisplay.classList.add("greenText");
+        playerScore++;
+        playerScoreDisplay.textContent = playerScore;
+        break;
+        case "YOUR LOSE...":
+        resultDisplay.classList.add("redText");
+        computerScore++;
+        computerScoreDisplay.textContent = computerScore;
+        break;
+    }
+}
+
+
+rockButton.addEventListener("click", () => playgame("rock"));
+paperButton.addEventListener("click", () => playgame("paper"));
+scissorsButton.addEventListener("click", () => playgame("scissors"));
+
+
+
+
+
+
