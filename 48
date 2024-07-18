@@ -98,3 +98,21 @@ walkDog().then(value =>{ console.log(value); return cleanKitchen()})
        .then(value =>{console.log(value); return takeTrash()})
        .then(value =>{console.log(value); console.log("You finished all your tasks.")})
        .catch(error =>console.log(error));
+
+//ASYNC / AWAIT
+//They have to be used together
+async function doTasks(){
+    try{
+        const walkDogResult = await walkDog();
+        console.log(walkDogResult);
+        const cleanKitchenResult = await cleanKitchen();
+        console.log(cleanKitchenResult);
+        const takeTrashResult = await takeTrash();
+        console.log(takeTrashResult);
+        console.log("You finished all your tasks.");
+    }
+    catch(error){
+       console.error(error);
+    }
+}
+doTasks();
